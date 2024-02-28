@@ -92,18 +92,8 @@ class GildedRose
   end
 
 
-  def sulfuras_tick
-    @item = Sulfuras.new(quality, days_remaining)
-    item.tick
-  end
 
-  class Sulfuras < Item
-
-    def tick
-    end
-  end
-
-  class Backstage
+  class Backstage < Item
     def tick
       @days_remaining -= 1
       return if @quality >= 50
@@ -121,6 +111,9 @@ class GildedRose
     def initialize(quality, days_remaining)
       @quality, @days_remaining = quality, days_remaining
     end
+  end
+
+  def tick
   end
 
 
