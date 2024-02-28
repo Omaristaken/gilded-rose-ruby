@@ -49,3 +49,9 @@ class GildedRose
     'normal'                            => Normal,
     'Aged Brie'                         => Brie,
     "Backstage passes to a TAFKALBOETC" => Backstage}
+
+  def self.for(name, quality, days_remaining)
+    (SPECIALIZED_CLASSES[name] || DEFAULT_CLASS.new(quality, days_remaining))
+  end
+
+end
