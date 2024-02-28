@@ -43,3 +43,9 @@ class GildedRose
       @quality += 1 if @days_remaining < 5
     end
   end
+
+  DEFAULT_CLASS = Item
+  SPECIALIZED_CLASSES = {
+    'normal'                            => Normal,
+    'Aged Brie'                         => Brie,
+    "Backstage passes to a TAFKALBOETC" => Backstage}
