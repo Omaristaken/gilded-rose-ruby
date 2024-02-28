@@ -54,12 +54,7 @@ class GildedRose
     item.tick
   end
 
-  class Normal
-    attr_reader :quality, :days_remaining
-
-    def initialize(quality, days_remaining)
-      @quality, @days_remaining = quality, days_remaining
-    end
+  class Normal < Item
 
     def tick
       @days_remaining -= 1
@@ -86,12 +81,7 @@ class GildedRose
     item.tick
   end
 
-  class Brie
-    attr_reader :quality, :days_remaining
-
-    def initialize(quality, days_remaining)
-      @quality, @days_remaining = quality, days_remaining
-    end
+  class Brie < Item
 
     def tick
       @days_remaining -= 1
@@ -107,18 +97,19 @@ class GildedRose
     item.tick
   end
 
-  class Sulfuras
-    attr_reader :quality, :days_remaining
-
-    def initialize(quality, days_remaining)
-      @quality, @days_remaining = quality, days_remaining
-    end
+  class Sulfuras < Item
 
     def tick
     end
   end
 
+  class item
+    attr_reader :quality, :days_remaining
 
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+  end
 
 
 
