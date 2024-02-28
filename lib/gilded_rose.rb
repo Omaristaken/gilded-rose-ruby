@@ -44,6 +44,11 @@ class GildedRose
     @quality += 1 if @days_remaining < 5
   end
 
+
+
+
+
+
   def normal_tick
     @item = Normal.new(quality, days_remaining)
     item.tick
@@ -63,6 +68,17 @@ class GildedRose
       @quality -= 1 if @days_remaining <= 0
     end
   end
+
+  def quality
+    return item.quality if item
+    @quality
+  end
+
+  def days_remaining
+    return item.days_remaining if item
+    @days_remaining
+  end
+
 
 
   def tick
