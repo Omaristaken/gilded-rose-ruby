@@ -30,6 +30,10 @@ class GildedRose
     @quality += 1 if @days_remaining <= 0
   end
 
+  def sulfuras_tick
+  end
+
+
   end
   def tick
     if @name != "Aged Brie" and @name != "Backstage passes to a TAFKAL80ETC concert"
