@@ -69,6 +69,7 @@ class GildedRose
     end
   end
 
+
   def quality
     return item.quality if item
     @quality
@@ -78,6 +79,7 @@ class GildedRose
     return item.days_remaining if item
     @days_remaining
   end
+
 
   def brie_tick
     @item = Brie.new(quality, days_remaining)
@@ -96,6 +98,23 @@ class GildedRose
       return if @quality >= 50
       @quality += 1
       @quality += 1 if @days_remaining <= 0
+    end
+  end
+
+
+  def sulfuras_tick
+    @item = Sulfuras.new(quality, days_remaining)
+    item.tick
+  end
+
+  class Sulfuras
+    attr_reader :quality, :days_remaining
+
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+
+    def tick
     end
   end
 
