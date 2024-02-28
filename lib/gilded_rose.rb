@@ -11,7 +11,8 @@ class GildedRose
     return normal_tick
   end
 
-  def normal_tick
+
+
     if @quality != 0
       if days_remaining > 0
         @quality -= 1
@@ -43,9 +44,27 @@ class GildedRose
     @quality += 1 if @days_remaining < 5
   end
 
-
-
+  def normal_tick
+    @item = Normal.new(quality, days_remaining)
+    item.tick
   end
+
+  class Normal
+    attr_reader :quality, :days_remaining
+
+    def initialize(quality, days_remaining)
+      @quality, @days_remaining = quality, days_remaining
+    end
+
+    def tick
+      @days_remaining -= 1
+      return if @quality == 0
+      @quality -= 1
+      @quality -= 1 if @days_remaining <= 0
+    end
+  end
+
+
   def tick
     if @name != "Aged Brie" and @name != "Backstage passes to a TAFKAL80ETC concert"
       if @quality > 0
